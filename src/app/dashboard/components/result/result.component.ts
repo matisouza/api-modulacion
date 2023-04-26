@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { Gif } from '../../interfaces/gifs.interface';
 
@@ -8,6 +8,9 @@ import { Gif } from '../../interfaces/gifs.interface';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
+
+  //Recibir desde el padre información
+  @Input() nombreHijo: string = 'aca va un nombre'
 
   constructor(
     private aipService: ApiService,

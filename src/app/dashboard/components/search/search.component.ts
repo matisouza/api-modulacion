@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 
 @Component({
@@ -8,7 +8,12 @@ import { ApiService } from '../../service/api.service';
 })
 export class SearchComponent {
 
+  // inputValue!: string
+
   @ViewChild('searchTxt') searchTxt!: ElementRef<HTMLInputElement>
+
+  // Emitiendo un evento desde el hijo, hacia el padre.
+  @Output() envioDelHijoAlPadre = new EventEmitter<string>()
 
   constructor(
     private apiService: ApiService,
@@ -18,6 +23,9 @@ export class SearchComponent {
     const value = this.searchTxt.nativeElement.value;
 
     this.apiService.getGifs(value);
+
+    this.envioDelHijoAlPadre.emit(value)
+
     this.searchTxt.nativeElement.value = ''
   }
 }

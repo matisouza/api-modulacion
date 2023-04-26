@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MainPageComponent {
 
+  nombre: string = 'Matias Souza'
+
+  valueInput(nombre: string) {
+    this.nombre = nombre
+  }
 }

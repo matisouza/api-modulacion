@@ -7,6 +7,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ResultComponent } from './components/result/result.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MaterialModule } from '../modules/material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,9 @@ import { MaterialModule } from '../modules/material/material.module';
   imports: [
     CommonModule,
     RoutingModule,
-    MaterialModule
+    MaterialModule,
+
+    FormsModule,
   ],
   exports:[
     MainPageComponent
